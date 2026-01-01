@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Privacy Guide (Internal) – Gainz</title>
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    .container { max-width: 1000px; margin: 50px auto; padding: 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2a5daf; }
+    h2 { color: #2a5daf; margin-top: 30px; border-bottom: 2px solid #2a5daf; padding-bottom: 10px; }
+    h3 { color: #333; margin-top: 20px; }
+    .note { background: #e7f3ff; padding: 15px; border-left: 4px solid #2a5daf; margin: 20px 0; }
+    .answer { background: #f0f9ff; padding: 10px; border-left: 3px solid #0ca678; margin: 10px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background: #2a5daf; color: white; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    .yes { color: #0ca678; font-weight: bold; }
+    .no { color: #dc3545; font-weight: bold; }
+    footer { margin-top: 40px; font-size: 0.9em; color: #777; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+    ul { margin: 10px 0; padding-left: 30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>App Privacy Guide (Internal Reference)</h1>
+    <p><strong>Purpose:</strong> This document provides step-by-step answers for the App Store Connect App Privacy questionnaire. Use this as a reference when submitting the app or updating privacy settings.</p>
+    <p><strong>Location:</strong> App Store Connect → Your App → App Privacy</p>
+
+    <div class="note">
+      <strong>Important:</strong> This is an internal reference document based on the actual data collection practices of the Gainz app (as of January 1, 2026). Always review the questionnaire carefully and update answers if the app's data practices change.
+    </div>
+
+    <h2>Section 1: Does your app collect data?</h2>
+    <div class="answer">
+      <strong>Answer: YES</strong><br>
+      The app collects user data including nutrition entries, workout logs, mental health inputs, purchase history, and usage analytics.
+    </div>
+
+    <h2>Section 2: Data Types You Collect</h2>
+    <p>Select ALL data types that apply. Below is the complete list for Gainz:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Collect?</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Contact Info</strong></td>
+          <td class="yes">YES</td>
+          <td>Email Address (from Apple Sign-In, optional)</td>
+        </tr>
+        <tr>
+          <td><strong>Health & Fitness</strong></td>
+          <td class="yes">YES</td>
+          <td>
+            <ul>
+              <li><strong>Fitness:</strong> Workout data (exercises, sets, reps, notes)</li>
+              <li><strong>Other Health Data:</strong> Nutrition data (food descriptions, macros, calories, ingredients), mental health inputs (mood triggers, feelings)</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Financial Info</strong></td>
+          <td class="no">NO</td>
+          <td>Apple handles all payment processing; we do not collect credit card numbers or bank details</td>
+        </tr>
+        <tr>
+          <td><strong>Location</strong></td>
+          <td class="no">NO</td>
+          <td>We do not collect precise or coarse location data</td>
+        </tr>
+        <tr>
+          <td><strong>Sensitive Info</strong></td>
+          <td class="no">NO</td>
+          <td>We do not collect racial/ethnic data, sexual orientation, pregnancy info, disability info, religious beliefs, or political beliefs</td>
+        </tr>
+        <tr>
+          <td><strong>Contacts</strong></td>
+          <td class="no">NO</td>
+          <td>We do not access your contacts list</td>
+        </tr>
+        <tr>
+          <td><strong>User Content</strong></td>
+          <td class="yes">YES</td>
+          <td>
+            <ul>
+              <li><strong>Photos or Videos:</strong> Food images uploaded for nutrition analysis (processed but NOT stored)</li>
+              <li><strong>Other User Content:</strong> Text descriptions of food, workouts, and mental health inputs</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Browsing History</strong></td>
+          <td class="no">NO</td>
+          <td>We do not track web browsing activity</td>
+        </tr>
+        <tr>
+          <td><strong>Search History</strong></td>
+          <td class="no">NO</td>
+          <td>We do not track search queries (no search feature)</td>
+        </tr>
+        <tr>
+          <td><strong>Identifiers</strong></td>
+          <td class="yes">YES</td>
+          <td><strong>User ID:</strong> Apple Sign-In identifier used for account management</td>
+        </tr>
+        <tr>
+          <td><strong>Purchases</strong></td>
+          <td class="yes">YES</td>
+          <td><strong>Purchase History:</strong> Credit pack transactions (Walk, Run)</td>
+        </tr>
+        <tr>
+          <td><strong>Usage Data</strong></td>
+          <td class="yes">YES</td>
+          <td><strong>Product Interaction:</strong> AI feature usage tracked via LangSmith (nutrition, workout, mental health)</td>
+        </tr>
+        <tr>
+          <td><strong>Diagnostics</strong></td>
+          <td class="no">NO</td>
+          <td>We do not collect crash data or performance diagnostics</td>
+        </tr>
+        <tr>
+          <td><strong>Other Data</strong></td>
+          <td class="no">NO</td>
+          <td>No other data types collected</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Section 3: For Each Data Type, Specify Usage Purpose</h2>
+    <p>For each data type selected above, you must specify how it's used. Select ALL that apply:</p>
+
+    <h3>Contact Info (Email Address)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> NO</li>
+      <li><strong>✅ Product Personalization:</strong> NO</li>
+      <li><strong>✅ App Functionality:</strong> YES (Account creation, authentication)</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h3>Health & Fitness (Workout Data + Nutrition Data + Mental Health Inputs)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> YES (Feature usage analytics via LangSmith)</li>
+      <li><strong>✅ Product Personalization:</strong> YES (AI-powered personalized nutrition/workout/mental health responses)</li>
+      <li><strong>✅ App Functionality:</strong> YES (Core app features)</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h3>User Content (Photos + Text Descriptions)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> NO</li>
+      <li><strong>✅ Product Personalization:</strong> NO</li>
+      <li><strong>✅ App Functionality:</strong> YES (AI analysis of food images and text)</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h3>Identifiers (User ID)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> NO</li>
+      <li><strong>✅ Product Personalization:</strong> NO</li>
+      <li><strong>✅ App Functionality:</strong> YES (Account management, authentication)</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h3>Purchases (Purchase History)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> NO</li>
+      <li><strong>✅ Product Personalization:</strong> NO</li>
+      <li><strong>✅ App Functionality:</strong> YES (Credit balance management)</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h3>Usage Data (Product Interaction)</h3>
+    <ul>
+      <li><strong>✅ Third-Party Advertising:</strong> NO</li>
+      <li><strong>✅ Developer's Advertising or Marketing:</strong> NO</li>
+      <li><strong>✅ Analytics:</strong> YES (Track feature usage patterns)</li>
+      <li><strong>✅ Product Personalization:</strong> YES (Improve AI recommendations)</li>
+      <li><strong>✅ App Functionality:</strong> NO</li>
+      <li><strong>✅ Other Purposes:</strong> NO</li>
+    </ul>
+
+    <h2>Section 4: Is Data Linked to the User?</h2>
+    <div class="answer">
+      <strong>Answer: YES, for ALL data types</strong><br>
+      All data collected by the app is linked to user accounts (via Apple Sign-In identifier). Users can view their nutrition and workout history, and all data is associated with their account.
+    </div>
+
+    <h2>Section 5: Is Data Used to Track the User?</h2>
+    <div class="answer">
+      <strong>Answer: NO</strong><br>
+      We do not use data for tracking purposes. Specifically:<br>
+      <ul>
+        <li>No cross-app or cross-website tracking</li>
+        <li>No advertising tracking or behavioral profiling</li>
+        <li>No data sold to data brokers</li>
+        <li>Analytics are limited to in-app feature usage (not user behavior tracking for advertising)</li>
+      </ul>
+    </div>
+
+    <h2>Section 6: Do You or Your Third-Party Partners Collect Data from This App to Use for Their Own Purposes?</h2>
+    <div class="answer">
+      <strong>Answer: YES</strong><br>
+      We share user data with third-party services for app functionality:<br>
+      <ul>
+        <li><strong>OpenAI:</strong> Processes user inputs (food descriptions, images, workout inputs, mental health queries) for AI analysis</li>
+        <li><strong>LangSmith:</strong> Receives usage metadata for analytics</li>
+        <li><strong>Apple:</strong> Verifies In-App Purchase receipts</li>
+      </ul>
+    </div>
+
+    <h3>Third-Party Services to Disclose</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Data Shared</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>OpenAI</strong></td>
+          <td>Food descriptions (text + images), workout inputs, mental health queries</td>
+          <td>User inputs are processed by OpenAI's AI models for nutrition analysis, workout generation, and mental health features</td>
+        </tr>
+        <tr>
+          <td><strong>LangSmith</strong></td>
+          <td>Usage metadata (request timestamps, feature types, user ID, performance metrics)</td>
+          <td>Analytics and monitoring of AI service performance</td>
+        </tr>
+        <tr>
+          <td><strong>Apple</strong></td>
+          <td>In-App Purchase receipts</td>
+          <td>Purchase verification and fraud prevention</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Section 7: Privacy Policy URL</h2>
+    <div class="answer">
+      <strong>URL:</strong> <code>https://gpsandhu23.github.io/user_issues_gainz/privacy-policy.html</code><br>
+      <strong>Note:</strong> This URL must be publicly accessible. Test it in a browser before submitting.
+    </div>
+
+    <h2>Section 8: User Privacy Choices URL (Optional)</h2>
+    <div class="answer">
+      <strong>Answer:</strong> Leave blank (optional field)<br>
+      Currently, users cannot opt-out of data collection while using the app. If you add opt-out features in the future, provide a URL here.
+    </div>
+
+    <h2>Key Points to Remember</h2>
+    <div class="note">
+      <ul>
+        <li><strong>Be Honest:</strong> Apple can reject apps for inaccurate privacy disclosures. Always reflect actual data practices.</li>
+        <li><strong>Update When Changing:</strong> If you add new features or change data collection, update the App Privacy settings in App Store Connect.</li>
+        <li><strong>Test Your Privacy Policy URL:</strong> Make sure it's live and accessible before submitting.</li>
+        <li><strong>Third-Party AI Disclosure:</strong> Explicitly mention OpenAI in the third-party services section (required by Apple's Nov 2025 guidelines).</li>
+        <li><strong>Images Are NOT Stored:</strong> While you collect photos (for nutrition analysis), clarify in your privacy policy that images are processed but not stored.</li>
+      </ul>
+    </div>
+
+    <h2>Submission Checklist</h2>
+    <ul>
+      <li>✅ All data types accurately selected</li>
+      <li>✅ Usage purposes specified for each data type</li>
+      <li>✅ Data linkage correctly identified (linked to user)</li>
+      <li>✅ Tracking status correctly set (NO tracking)</li>
+      <li>✅ Third-party services disclosed (OpenAI, LangSmith, Apple)</li>
+      <li>✅ Privacy policy URL tested and working</li>
+      <li>✅ Reviewed consistency between App Privacy answers and Privacy Policy document</li>
+    </ul>
+
+    <footer>
+      <p><a href="index.html">← Back to Support</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+      <p><strong>Note:</strong> This is an internal reference document. It is not required to be publicly accessible, but you may keep it in the docs folder for easy reference.</p>
+      <p>© 2026 Gainz. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
